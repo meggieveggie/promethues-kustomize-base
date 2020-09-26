@@ -12,7 +12,7 @@ spec:
     honorLabels: true
   selector:
     matchLabels:
-      app: prometheus-operator
+      app: prometheus-basic
   namespaceSelector:
     matchNames:
       - "prometheus-operator"

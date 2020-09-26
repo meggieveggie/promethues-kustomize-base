@@ -1,0 +1,38 @@
+---
+# Source: prometheus-operator/templates/prometheus/prometheus.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus-basic
+  labels:
+    app: prometheus-basic
+spec:
+  baseImage: quay.io/prometheus/prometheus
+  version: v2.18.2
+  externalUrl: http://prometheus-basic.monitoring:9090
+  paused: false
+  replicas: 1
+  logLevel:  info
+  logFormat:  logfmt
+  listenLocal: false
+  enableAdminAPI: false
+  retention: "10d"
+  routePrefix: "/"
+  serviceAccountName: prometheus-basic
+  serviceMonitorSelector:
+    matchLabels:
+      release: "prometheus-basic"
+  serviceMonitorNamespaceSelector: {}
+  podMonitorSelector:
+    matchLabels:
+      monitor: "prometheus-basic"
+  podMonitorNamespaceSelector: {}
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  ruleNamespaceSelector: {}
+  ruleSelector:
+    matchLabels:
+      app: prometheus-basic
+  portName: web

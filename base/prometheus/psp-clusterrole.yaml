@@ -1,0 +1,14 @@
+---
+# Source: prometheus-operator/templates/prometheus/psp-clusterrole.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: prometheus-basic
+  labels:
+    app: prometheus-basic
+rules:
+- apiGroups: ['policy']
+  resources: ['podsecuritypolicies']
+  verbs:     ['use']
+  resourceNames:
+  - prometheus-basic
