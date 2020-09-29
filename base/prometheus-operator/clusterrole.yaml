@@ -18,6 +18,7 @@ rules:
   resources:
   - alertmanagers
   - prometheuses
+  - probes
   - thanosrulers
   - prometheuses/finalizers
   - alertmanagers/finalizers

@@ -7,8 +7,8 @@ metadata:
   labels:
     app: prometheus-basic
 spec:
-  baseImage: quay.io/prometheus/prometheus
-  version: v2.18.2
+  image: quay.io/prometheus/prometheus
+  version: v2.21.0
   externalUrl: http://prometheus-basic.monitoring:9090
   paused: false
   replicas: 1

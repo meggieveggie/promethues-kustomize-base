@@ -18,10 +18,9 @@ spec:
     spec:
       containers:
         - name: prometheus-operator
-          image: "quay.io/coreos/prometheus-operator:v0.38.1"
+          image: "quay.io/coreos/prometheus-operator:v0.42.1"
           imagePullPolicy: "IfNotPresent"
           args:
-            - --manage-crds=true
             - --kubelet-service=kube-system/prometheus-kubelet
             - --logtostderr=true
             - --localhost=127.0.0.1
